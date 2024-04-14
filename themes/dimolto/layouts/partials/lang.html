@@ -2,18 +2,18 @@
 {{ $pageLang := .Page.Lang }}
 
 {{ range .Page.AllTranslations }}
-    {{ $translation := .}}
-    {{ range $siteLanguages }}
-        {{ if eq $translation.Lang .Lang }}
-            {{ if eq $pageLang .Lang }}
-                <li class="main-nav__item">
-                    <a class="nav-main-item active" href="{{ $translation.Permalink }}">{{ .LanguageName }}</a><br/>
-                </li>
-            {{ else }}
-                <li class="main-nav__item">
-                    <a class="nav-main-item" href="{{ $translation.Permalink }}">{{ .LanguageName }}</a><br/>
-                </li>
-            {{ end }}
-        {{ end }}
+  {{ $translation := .}}
+  {{ range $siteLanguages }}
+    {{ if eq $translation.Lang .Lang }}
+      {{ if eq $pageLang .Lang }}
+        <li class="main-nav__item">
+          <a class="nav-main-item active" href="{{ $translation.Permalink }}">{{ .LanguageName }}</a><br/>
+        </li>
+      {{ else }}
+        <li class="main-nav__item">
+          <a class="nav-main-item" href="{{ $translation.Permalink }}">{{ .LanguageName }}</a><br/>
+        </li>
+      {{ end }}
     {{ end }}
+  {{ end }}
 {{ end }}

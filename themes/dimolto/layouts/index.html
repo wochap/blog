@@ -1,78 +1,77 @@
 {{ define "main" }}
-    <!-- $pages -->
-    {{ $pages := union .RegularPages .Sections }}
-    {{ if .IsHome }}
+  <!-- $pages -->
+  {{ $pages := union .RegularPages .Sections }}
+  {{ if .IsHome }}
     {{ $pages = where site.RegularPages "Type" "in" site.Params.mainSections }}
-    {{ end }}
+  {{ end }}
 
-    <!-- $paginator -->
-    {{ $paginator := .Paginate $pages }}
+  <!-- $paginator -->
+  {{ $paginator := .Paginate $pages }}
 
-    <!-- Posts -->
+  <!-- Posts -->
+  <ul class="post-items">
+  {{ range $index, $page := $paginator.Pages }}
+    <li>
+      <article class="post-item">
+        <h3 class="post-item__title">
+          <a href="{{ .Permalink }}">{{ .Title | markdownify }}</a>
+        </h3>
+        <div class="post-item__meta">
+          <!-- date -->
+          <div>
+            <i class="fa-regular fa-calendar-days"></i> <time datetime="{{ .PublishDate }}">{{ .PublishDate | time.Format "Jan 2" }}</time>
+          </div>
 
-    <ul class="post-items">
-    {{ range $index, $page := $paginator.Pages }}
-        <li>
-            <article class="post-item">
-                <h3 class="post-item__title">
-                    <a href="{{ .Permalink }}">{{ .Title | markdownify }}</a>
-                </h3>
-                <div class="post-item__meta">
-                    <!-- date -->
-                    <div>
-                        <i class="fa-regular fa-calendar-days"></i> <time datetime="{{ .PublishDate }}">{{ .PublishDate | time.Format "Jan 2" }}</time>
-                    </div>
+          <!-- reading time -->
+          {{ if gt .ReadingTime 1 }}
+            {{ .Scratch.Set "timeUnit" "mins" }}
+          {{ else }}
+            {{ .Scratch.Set "timeUnit" "min" }}
+          {{ end }}
+          {{ if .Site.Params.showReadingTime }}
+            <div>
+              <i class="fa-regular fa-clock"></i> <span> ~{{.ReadingTime}} {{ .Scratch.Get "timeUnit" }}</span>
+            </div>
+          {{ end }}
 
-                    <!-- reading time -->
-                    {{ if gt .ReadingTime 1 }}
-                        {{ .Scratch.Set "timeUnit" "mins" }}
-                    {{ else }}
-                        {{ .Scratch.Set "timeUnit" "min" }}
-                    {{ end }}
-                    {{ if .Site.Params.showReadingTime }}
-                        <div>
-                            <i class="fa-regular fa-clock"></i> <span> ~{{.ReadingTime}} {{ .Scratch.Get "timeUnit" }}</span>
-                        </div>
-                    {{ end }}
+          <!-- tags -->
+          {{ with .Params.tags }}
+            <div>
+              <i class="fa-solid fa-tag"></i>
+              <ul class="tags">
+              {{ range . }}
+                <li>
+                  <a href="{{ "tags/" | absURL }}{{ . | urlize }}" target="_blank" rel="noreferrer" >#{{ . }}</a>
+                </li>
+              {{ end }}
+              </ul>
+            </div>
+          {{ end}}
+        </div>
+        <div class="post-item__summary">
+          {{ .Summary }}
+        </div>
+      </article>
+    </li>
+  {{ end }}
+  </ul>
 
-                    <!-- tags -->
-                    {{ with .Params.tags }}
-                        <div>
-                            <i class="fa-solid fa-tag"></i>
-                            <ul class="tags">
-                            {{ range . }}
-                                <li>
-                                    <a href="{{ "tags/" | absURL }}{{ . | urlize }}" target="_blank" rel="noreferrer" >#{{ . }}</a>
-                                </li>
-                            {{ end }}
-                            </ul>
-                        </div>
-                    {{ end}}
-                </div>
-                <div class="post-item__summary">
-                    {{ .Summary }}
-                </div>
-            </article>
-        </li>
-    {{ end }}
-    </ul>
-
-    <!-- Main Nav -->
-    {{ if gt $paginator.TotalPages 1 }}
-        <nav class="paginator">
-            {{ if $paginator.HasPrev }}
-                <a class="paginator__btn" href="{{ $paginator.Prev.URL }}">← {{ i18n "prev_page" }}</a>
-            {{ end }}
-            {{ if $paginator.HasNext }}
-                <a class="paginator__btn next" href="{{ $paginator.Next.URL }}">{{ i18n "next_page" }} →</a >
-            {{ end }}
-        </nav>
-    {{ end }}
+  <!-- Main Nav -->
+  {{ if gt $paginator.TotalPages 1 }}
+    <nav class="paginator">
+      {{ if $paginator.HasPrev }}
+        <a class="paginator__btn" href="{{ $paginator.Prev.URL }}">← {{ i18n "prev_page" }}</a>
+      {{ end }}
+      {{ if $paginator.HasNext }}
+        <a class="paginator__btn next" href="{{ $paginator.Next.URL }}">{{ i18n "next_page" }} →</a >
+      {{ end }}
+    </nav>
+  {{ end }}
 {{ end }}
 
 {{ define "aside" }}
-    {{ if .Params.description }}
-        <p>{{ .Params.description }}</p>
-    {{ end }}
+  {{ if .Params.description }}
+    <p>{{ .Params.description }}</p>
+  {{ end }}
 {{ end }}
 
