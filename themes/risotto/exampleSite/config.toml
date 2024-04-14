@@ -1,8 +1,8 @@
-baseURL = "https://risotto.joeroe.io"
-theme = "risotto"
-title = "risotto demo"
+baseURL = "https://dimolto.geanmar.com"
+theme = "dimolto"
+title = "dimolto demo"
 author = "Joe Roe"
-copyright = "© [Joe Roe](https://joeroe.io) & [risotto contributors](https://github.com/joeroe/risotto/graphs/contributors)."
+copyright = "© [Gean Marroquin](https://geanmar.com)."
 paginate = 3
 languageCode = "en"
 DefaultContentLanguage = "en"
@@ -18,12 +18,12 @@ sectionPagesMenu = "main"
 noindex = false
 
 [params.theme]
-palette = "base16-dark"
+palette = "catppuccin-macchiato"
 
 # Sidebar: about/bio
 [params.about]
-title = "risotto"
-description = "A [hugo](https://gohugo.io) theme inspired by terminal ricing."
+title = "dimolto"
+description = "A [hugo](https://gohugo.io) theme inspired by [risotto](https://github.com/joeroe/risotto)."
 logo = "images/rice.svg"
 
 # Sidebar: social links

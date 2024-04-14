@@ -1,0 +1,16 @@
+@import "colours.css";
+@import "typography.css";
+@import "layout.css";
+@import "header.css";
+@import "logo.css";
+@import "about.css";
+@import "footer.css";
+@import "tags.css";
+@import "post-item.css";
+@import "paginator.css";
+@import "toc.css";
+
+body {
+  background-color: var(--bg);
+  color: var(--fg);
+}

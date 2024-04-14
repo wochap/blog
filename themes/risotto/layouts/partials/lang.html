@@ -1,28 +1,19 @@
-<p>
-    {{ $siteLanguages := .Site.Languages }}
-    {{ $pageLang := .Page.Lang }}
-    
-    {{ $currentPage := . }}
-    {{ $pageName := "" }}
-    {{ range .Site.Menus.main }}
-      {{ if eq ($currentPage.Permalink) (.URL | absLangURL) }}
-        {{ $pageName = .Name }}
-      {{ end }}
-    {{ end }}
-    
-    {{ range .Page.AllTranslations }}
-      {{ $translation := .}}
-      {{ range $siteLanguages }}
-          {{ if eq $translation.Lang .Lang }}
-            {{ $selected := false }}
-            {{ if eq $pageLang .Lang }}
-                <br/><span class="active">$ echo $LANG<br/><b>{{ .LanguageName }}</b></span><br/>
+{{ $siteLanguages := .Site.Languages }}
+{{ $pageLang := .Page.Lang }}
 
+{{ range .Page.AllTranslations }}
+    {{ $translation := .}}
+    {{ range $siteLanguages }}
+        {{ if eq $translation.Lang .Lang }}
+            {{ if eq $pageLang .Lang }}
+                <li class="main-nav__item">
+                    <a class="nav-main-item active" href="{{ $translation.Permalink }}">{{ .LanguageName }}</a><br/>
+                </li>
             {{ else }}
-                <br/><a href="{{ $translation.Permalink }}">export LANG={{ .LanguageName }}; ./{{ $pageName }}</a><br/>
+                <li class="main-nav__item">
+                    <a class="nav-main-item" href="{{ $translation.Permalink }}">{{ .LanguageName }}</a><br/>
+                </li>
             {{ end }}
-          {{ end }}
-      {{ end }}
+        {{ end }}
     {{ end }}
-</p>
-<br /><br />
+{{ end }}

@@ -1,0 +1,18 @@
+.post-item {
+  margin-bottom: 1.5rem;
+}
+
+.post-item__title {
+  margin-bottom: 0;
+}
+
+.post-item__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  font-size: 0.875rem;
+}
+
+.post-item__summary {
+  font-size: 0.875rem;
+}

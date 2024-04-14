@@ -1,12 +1,9 @@
-baseURL = 'https://geanmar.com'
 theme = "risotto"
-title = 'Gean'
 author = "Gean Marroquin"
 copyright = "© [Gean Marroquin](https://geanmar.com)."
-paginate = 3
-languageCode = 'en'
-DefaultContentLanguage = "en"
+paginate = 10
 enableInlineShortcodes = true
+
 # prevent build failures when using Hugo's Instagram shortcode due to deprecated Instagram API.
 # See https://github.com/gohugoio/hugo/issues/7228#issuecomment-714490456
 ignoreErrors = ["error-remote-getjson"]
@@ -16,37 +13,37 @@ sectionPagesMenu = "main"
 
 [params]
 noindex = false
+showReadingTime = true
 
-[params.theme]
-palette = "catppuccin-macchiato"
+  [params.theme]
+  palette = "catppuccin-macchiato"
 
-# Sidebar: about/bio
-[params.about]
-title = "Gean Marroquin"
-description = "I'm a self-taught software engineer 💻 on a mission to explore the world while crafting innovative solutions through code 🚀."
-logo = "https://res.cloudinary.com/wochap/image/upload/c_scale,w_48/wochap/assets/yksazgnr5uyuo5txtnkg.png"
+  # Sidebar: about/bio
+  [params.about]
+  title = "Gean Marroquin"
+  logo = "https://res.cloudinary.com/wochap/image/upload/c_scale,w_48/wochap/assets/yksazgnr5uyuo5txtnkg.png"
 
-# Sidebar: social links
-[[params.socialLinks]]
-icon = "fa-brands fa-github"
-title = "GitHub"
-url = "https://github.com/wochap"
+  # Sidebar: social links
+  [[params.socialLinks]]
+  icon = "fa-brands fa-github"
+  title = "GitHub"
+  url = "https://github.com/wochap"
 
-[[params.socialLinks]]
-icon = "fa-brands fa-linkedin"
-title = "LinkedIn"
-url = "https://www.linkedin.com/in/gean-bonifacio/"
+  [[params.socialLinks]]
+  icon = "fa-brands fa-linkedin"
+  title = "LinkedIn"
+  url = "https://www.linkedin.com/in/gean-bonifacio/"
 
-[[params.socialLinks]]
-icon = "fa-solid fa-envelope"
-title = "Email"
-url = "mailto:gean.marroquin@gmail.com"
-
-# For hugo >= 0.60.0, enable inline HTML
-[markup.goldmark.renderer]
-unsafe = true
+  [[params.socialLinks]]
+  icon = "fa-solid fa-envelope"
+  title = "Email"
+  url = "mailto:gean.marroquin@gmail.com"
 
 [markup]
+
+  # For hugo >= 0.60.0, enable inline HTML
+  [markup.goldmark.renderer]
+  unsafe = true
 
   # Table of contents
   # Add toc = true to content front matter to enable
@@ -54,6 +51,50 @@ unsafe = true
     startLevel = 2
     endLevel   = 3
     ordered    = true
+
+  [markup.highlight]
+    noClasses = false
+    tabWidth = 2
+
+[languages]
+
+  [languages.en]
+    baseURL = 'https://geanmar.com'
+    contentDir = 'content/en'
+    disabled = false
+    languageCode = 'en'
+    languageDirection = 'ltr'
+    languageName = 'English'
+    title = "Gean's blog"
+    weight = 1
+
+    [languages.en.params.about]
+    description = "I'm a self-taught software engineer 💻 on a mission to explore the world while crafting innovative solutions through code 🚀."
+
+    [languages.en.menus]
+    [[languages.en.menus.main]]
+      name = 'Tags'
+      pageRef = '/tags'
+      weight = 0
+
+  [languages.es]
+    baseURL = 'https://es.geanmar.com'
+    contentDir = 'content/es'
+    disabled = false
+    languageCode = 'es'
+    languageDirection = 'ltr'
+    languageName = 'Español'
+    title = "Blog de Gean"
+    weight = 2
+
+    [languages.es.params.about]
+    description = "Soy un ingeniero de software autodidacta 💻 en una misión para explorar el mundo mientras creo soluciones innovadoras a través del código 🚀."
+
+    [languages.es.menus]
+    [[languages.es.menus.main]]
+      name = 'Etiquetas'
+      pageRef = '/tags'
+      weight = 0
 
 [privacy]
 

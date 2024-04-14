@@ -1,0 +1,12 @@
+.paginator {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.paginator__btn {
+  &.next {
+    margin-left: auto;
+  }
+}
+

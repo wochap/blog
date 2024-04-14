@@ -1,0 +1,13 @@
+.toc {
+  display: none;
+}
+
+@media (min-width: 45rem) {
+  .toc-mobile {
+    display: none;
+  }
+
+  .toc {
+    display: block;
+  }
+}

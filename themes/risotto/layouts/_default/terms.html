@@ -1,0 +1,21 @@
+{{ define "main" }}
+    {{ $data := .Data }}
+
+    <ul>
+    {{ range $key, $value := .Data.Terms.ByCount }}
+        {{ if ($value.Name) }}
+            <li>
+                <a href="{{ "tags/" | relURL }}{{ $value.Name | urlize }}">
+                    #{{ $value.Name }} <span>({{ $value.Count }})</span>
+                </a>
+            </li>
+        {{ end }}
+    {{ end }}
+    </ul>
+{{ end }}
+
+{{ define "aside" }}
+    {{ if .Params.description }}
+        <p>{{ .Params.description }}</p>
+    {{ end }}
+{{ end }}

@@ -1,0 +1,12 @@
+.tags {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0;
+}
+
+.tags li {
+  &::marker {
+    content: "";
+  }
+}

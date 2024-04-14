@@ -1,16 +1,54 @@
 {{ define "main" }}
-    <h1 id="{{ .Title | urlize }}">{{ .Title | markdownify }}</h1>
+    {{ range .Data.Pages.GroupByDate "2006" }}
+        <h2>{{ .Key }}</h2>
+        <ul class="post-items">
+        {{ range .Pages }}
+            <li>
+                <article class="post-item">
+                    <h3 class="post-item__title">
+                        <a href="{{ .Permalink }}">{{ .Title | markdownify }}</a>
+                    </h3>
+                    <div class="post-item__meta">
+                        <!-- date -->
+                        <div>
+                            <i class="fa-regular fa-calendar-days"></i> <time datetime="{{ .PublishDate }}">{{ .PublishDate | time.Format "Jan 2" }}</time>
+                        </div>
 
-    {{ .Content }}
+                        <!-- reading time -->
+                        {{ if gt .ReadingTime 1 }}
+                            {{ .Scratch.Set "timeUnit" "mins" }}
+                        {{ else }}
+                            {{ .Scratch.Set "timeUnit" "min" }}
+                        {{ end }}
+                        {{ if .Site.Params.showReadingTime }}
+                            <div>
+                                <i class="fa-regular fa-clock"></i> <span> ~{{.ReadingTime}} {{ .Scratch.Get "timeUnit" }}</span>
+                            </div>
+                        {{ end }}
 
-    <ul>
-    {{ range .Pages }}
-        {{ .Render "li" }}
+                        <!-- tags -->
+                        {{ with .Params.tags }}
+                            <div>
+                                <i class="fa-solid fa-tag"></i>
+                                <ul class="tags">
+                                {{ range . }}
+                                    <li>
+                                        <a href="{{ "tags/" | absURL }}{{ . | urlize }}">#{{ . }}</a>
+                                    </li>
+                                {{ end }}
+                                </ul>
+                            </div>
+                        {{ end}}
+                    </div>
+                </article>
+            </li>
+        {{ end }}
+        </ul>
     {{ end }}
-    </ul>
-
 {{ end }}
 
-{{define "aside" }}
-    {{ if .Params.description }}<p>{{ .Params.description }}</p>{{ end }}
+{{ define "aside" }}
+    {{ if .Params.description }}
+        <p>{{ .Params.description }}</p>
+    {{ end }}
 {{ end }}

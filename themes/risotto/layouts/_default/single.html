@@ -2,24 +2,57 @@
     <header class="content__header">
         <h1>{{ .Title | markdownify }}</h1>
     </header>
-    <div class="content__body">
+    <div class="content__body content">
         {{ .Content }}
     </div>
     <footer class="content__footer"></footer>
 {{ end }}
 
-{{define "aside" }}
-    {{ if .Params.description }}<p>{{ .Params.description }}</p>{{ end }}
-    {{ if or (.Params.author) (.Params.date) }}
-        <p>
-            {{ if .Params.author }}By {{ .Params.author }}{{ if .Date }}, {{ end }}{{ end }}
-            {{ if .Date }}{{ .Date.Format "2006-01-02" }}{{ end }}
-        </p>
+{{ define "aside" }}
+    {{ if .Params.description }}
+        <p>{{ .Params.description }}</p>
     {{ end }}
+
+    <!-- date -->
+    <div>
+        <i class="fa-regular fa-calendar-days"></i> <time datetime="{{ .PublishDate }}">{{ .PublishDate | time.Format "January 2, 2006" }}</time>
+    </div>
+
+    <!-- reading time -->
+    {{ if gt .ReadingTime 1 }}
+        {{ .Scratch.Set "timeUnit" "mins" }}
+    {{ else }}
+        {{ .Scratch.Set "timeUnit" "min" }}
+    {{ end }}
+    {{ if .Site.Params.showReadingTime }}
+        <div>
+            <i class="fa-regular fa-clock"></i> <span> ~{{.ReadingTime}} {{ .Scratch.Get "timeUnit" }}</span>
+        </div>
+    {{ end }}
+
+    <!-- tags -->
+    {{ with .Params.tags }}
+        <i class="fa-solid fa-tag"></i>
+        <ul class="tags">
+        {{ range . }}
+            <li>
+                <a href="{{ "tags/" | absURL }}{{ . | urlize }}">#{{ . }}</a>
+            </li>
+        {{ end }}
+        </ul>
+    {{ end}}
 
     {{ if and (.Params.toc) (.TableOfContents) }}
 	    <hr>
-	    On this page:
-	    {{ .TableOfContents }}
+        <details class="toc-mobile">
+            <summary>
+                Table of Contents
+            </summary>
+            {{ .TableOfContents }}
+        </details>
+        <div class="toc">
+            <p>Table of Contents</p>
+            {{ .TableOfContents }}
+        </div>
     {{ end }}
 {{ end }}
