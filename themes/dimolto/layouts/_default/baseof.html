@@ -1,36 +1,36 @@
 <!DOCTYPE html>
 <html lang="{{- site.Language.Lang -}}">
 <head>
-    {{- partial "head.html" . -}}
+  {{- partial "head.html" . -}}
 </head>
 
 <body>
-    <div class="page">
-        <header class="page__header">
-            {{- partial "header.html" . -}}
-        </header>
+  <div class="page">
+    <header class="page__header">
+      {{- partial "header.html" . -}}
+    </header>
 
-        <section class="page__body">
-            {{- block "main" . }}{{- end }}
-        </section>
+    <section class="page__body">
+      {{- block "main" . }}{{- end }}
+    </section>
 
-        {{- block "test" . }}
-          <section class="page__aside">
-              {{ if not .IsPage }}
-                  <div class="aside__about">
-                      {{- partial "about.html" . -}}
-                  </div>
-              {{ else }}
-                  <div class="aside__content">
-                      {{- block "aside" . }}{{- end }}
-                  </div>
-              {{ end }}
-          </section>
-        {{- end }}
+    {{- block "test" . }}
+      <section class="page__aside">
+        {{ if not .IsPage }}
+          <div class="aside__about">
+            {{- partial "about.html" . -}}
+          </div>
+        {{ else }}
+          <div class="aside__content">
+            {{- block "aside" . }}{{- end }}
+          </div>
+        {{ end }}
+      </section>
+    {{- end }}
 
-        <footer class="page__footer">
-            {{- partial "footer.html" . -}}
-        </footer>
-    </div>
+    <footer class="page__footer">
+      {{- partial "footer.html" . -}}
+    </footer>
+  </div>
 </body>
 </html>
