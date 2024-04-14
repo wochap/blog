@@ -11,7 +11,7 @@
                     <div class="post-item__meta">
                         <!-- date -->
                         <div>
-                            <i class="fa-regular fa-calendar-days"></i> <time datetime="{{ .PublishDate }}">{{ .PublishDate | time.Format "Jan 2" }}</time>
+                            {{- partial "svg-icons/calendar-day.html" }} <time datetime="{{ .PublishDate }}">{{ .PublishDate | time.Format "Jan 2" }}</time>
                         </div>
 
                         <!-- reading time -->
