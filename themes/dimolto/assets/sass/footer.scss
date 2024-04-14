@@ -1,0 +1,11 @@
+.page__footer {
+  color: var(--off-fg);
+}
+
+.page__footer p {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}

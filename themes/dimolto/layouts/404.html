@@ -1,6 +1,11 @@
 {{ define "main" }}
-    <header class="content__header">
-        {{ i18n "page_not_found" }}
-    </header>
+  <header class="content__header">
+    <span class="not-found">{{ i18n "page_not_found" }}</span>
+  </header>
 {{ end }}
 
+{{ define "test" }}
+  <section class="page__aside">
+    {{ i18n "page_not_found" }}
+  </section>
+{{ end }}

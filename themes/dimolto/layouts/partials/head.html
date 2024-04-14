@@ -14,7 +14,11 @@
 <!-- dimolto theme -->
 <link rel="stylesheet" href="{{ printf "css/chromas/%s.css" (.Site.Params.theme.palette | default "catppuccin-macchiato") | absURL }}">
 <link rel="stylesheet" href="{{ printf "css/palettes/%s.css" (.Site.Params.theme.palette | default "catppuccin-macchiato") | absURL }}">
-<link rel="stylesheet" href="{{ "css/main.css" | absURL }}">
+{{ $css := resources.Get "sass/main.scss" | resources.ToCSS }}
+{{ if hugo.IsProduction }}
+  {{ $css := $css | resources.Minify }}
+{{ end }}
+<link rel="stylesheet" href="{{ $css.Permalink }}" />
 <link rel="stylesheet" href="{{ "css/custom.css" | absURL }}">
 
 <!-- favicon -->

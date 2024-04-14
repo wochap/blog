@@ -78,6 +78,10 @@
   grid-area: aside;
   color: var(--off-fg);
   margin-bottom: 1rem;
+
+  &.empty {
+    margin-bottom: 0;
+  }
 }
 
 @media (min-width: 45rem) {

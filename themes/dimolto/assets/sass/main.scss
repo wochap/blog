@@ -1,0 +1,18 @@
+@import "colours";
+@import "typography";
+@import "layout";
+@import "header";
+@import "logo";
+@import "about";
+@import "footer";
+@import "tags";
+@import "post-item";
+@import "paginator";
+@import "toc";
+@import "not-found";
+
+body {
+  background-color: var(--bg);
+  color: var(--fg);
+}
+

@@ -42,7 +42,7 @@
                             <ul class="tags">
                             {{ range . }}
                                 <li>
-                                    <a href="{{ "tags/" | absURL }}{{ . | urlize }}">#{{ . }}</a>
+                                    <a href="{{ "tags/" | absURL }}{{ . | urlize }}" target="_blank" rel="noreferrer" >#{{ . }}</a>
                                 </li>
                             {{ end }}
                             </ul>
