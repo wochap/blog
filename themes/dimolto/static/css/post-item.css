@@ -11,6 +11,7 @@
   flex-wrap: wrap;
   gap: 1.5rem;
   font-size: 0.875rem;
+  color: var(--base07);
 }
 
 .post-item__summary {
