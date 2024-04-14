@@ -3,6 +3,7 @@ author = "Gean Marroquin"
 copyright = "© [Gean Marroquin](https://geanmar.com)."
 paginate = 10
 enableInlineShortcodes = true
+DefaultContentLanguage = "en"
 
 # prevent build failures when using Hugo's Instagram shortcode due to deprecated Instagram API.
 # See https://github.com/gohugoio/hugo/issues/7228#issuecomment-714490456
