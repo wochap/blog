@@ -46,12 +46,12 @@
 	    <hr>
         <details class="toc-mobile">
             <summary>
-                Table of Contents
+            {{ i18n "toc" }}
             </summary>
             {{ .TableOfContents }}
         </details>
         <div class="toc">
-            <p>Table of Contents</p>
+            <p>{{ i18n "toc" }}</p>
             {{ .TableOfContents }}
         </div>
     {{ end }}

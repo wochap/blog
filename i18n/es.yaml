@@ -6,3 +6,6 @@
 
 - id: page_not_found
   translation: 'Pagina no encontrada'
+
+- id: toc
+  translation: 'Tabla de contenidos'
