@@ -19,7 +19,7 @@
         <div class="post-item__meta">
           <!-- date -->
           <div>
-            <i class="fa-regular fa-calendar-days"></i> <time datetime="{{ .PublishDate }}">{{ .PublishDate | time.Format "Jan 2" }}</time>
+            {{- partial "svg-icons/calendar-day.html" (dict "size" "14") }} <time datetime="{{ .PublishDate }}">{{ .PublishDate | time.Format "Jan 2" }}</time>
           </div>
 
           <!-- reading time -->
@@ -30,14 +30,14 @@
           {{ end }}
           {{ if .Site.Params.showReadingTime }}
             <div>
-              <i class="fa-regular fa-clock"></i> <span> ~{{.ReadingTime}} {{ .Scratch.Get "timeUnit" }}</span>
+              {{- partial "svg-icons/clock.html" (dict "size" "14") }} <span> ~{{.ReadingTime}} {{ .Scratch.Get "timeUnit" }}</span>
             </div>
           {{ end }}
 
           <!-- tags -->
           {{ with .Params.tags }}
             <div>
-              <i class="fa-solid fa-tag"></i>
+              {{- partial "svg-icons/tag.html" (dict "size" "14") }}
               <ul class="tags">
               {{ range . }}
                 <li>

@@ -1,7 +1,7 @@
 <p>
   <span>{{ .Site.Copyright | markdownify }}</span>
   <a href="{{ "index.xml" | absURL }}" target="_blank">
-    <i class="fa-solid fa-rss"></i> RSS
+    {{- partial "svg-icons/square-rss.html" }} RSS
   </a>
 </p>
 

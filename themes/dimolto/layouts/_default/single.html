@@ -15,7 +15,7 @@
 
   <!-- date -->
   <div>
-    <i class="fa-regular fa-calendar-days"></i> <time datetime="{{ .PublishDate }}">{{ .PublishDate | time.Format "January 2, 2006" }}</time>
+    {{- partial "svg-icons/calendar-day.html" }} <time datetime="{{ .PublishDate }}">{{ .PublishDate | time.Format "January 2, 2006" }}</time>
   </div>
 
   <!-- reading time -->
@@ -26,13 +26,13 @@
   {{ end }}
   {{ if .Site.Params.showReadingTime }}
     <div>
-      <i class="fa-regular fa-clock"></i> <span> ~{{.ReadingTime}} {{ .Scratch.Get "timeUnit" }}</span>
+      {{- partial "svg-icons/clock.html" }} <span> ~{{.ReadingTime}} {{ .Scratch.Get "timeUnit" }}</span>
     </div>
   {{ end }}
 
   <!-- tags -->
   {{ with .Params.tags }}
-    <i class="fa-solid fa-tag"></i>
+    {{- partial "svg-icons/tag.html" }}
     <ul class="tags">
     {{ range . }}
       <li>

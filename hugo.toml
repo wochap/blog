@@ -25,17 +25,17 @@ showReadingTime = true
 
   # Sidebar: social links
   [[params.socialLinks]]
-  icon = "fa-brands fa-github"
+  icon = "github"
   title = "GitHub"
   url = "https://github.com/wochap"
 
   [[params.socialLinks]]
-  icon = "fa-brands fa-linkedin"
+  icon = "linkedin"
   title = "LinkedIn"
   url = "https://www.linkedin.com/in/gean-bonifacio/"
 
   [[params.socialLinks]]
-  icon = "fa-solid fa-envelope"
+  icon = "envelope"
   title = "Email"
   url = "mailto:gean.marroquin@gmail.com"
 
