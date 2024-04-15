@@ -10,6 +10,9 @@
   {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
 {{ end -}}
 
+<!-- Iosevka <https://typeof.net/Iosevka> -->
+<link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/Iosevka/6.0.0/iosevka/iosevka.min.css" fetchpriority="low" onload="this.rel='stylesheet'">
+
 <!-- dimolto theme -->
 <link rel="stylesheet" href="{{ printf "css/chromas/%s.css" (.Site.Params.theme.palette | default "catppuccin-macchiato") | absURL }}">
 <link rel="stylesheet" href="{{ printf "css/palettes/%s.css" (.Site.Params.theme.palette | default "catppuccin-macchiato") | absURL }}">
