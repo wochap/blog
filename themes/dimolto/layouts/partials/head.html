@@ -16,8 +16,10 @@
 {{ $css := resources.Get "sass/main.scss" | resources.ToCSS }}
 {{ if hugo.IsProduction }}
   {{ $css := $css | resources.Minify }}
+  <link rel="stylesheet" href="{{ $css.Permalink }}" />
+{{ else }}
+  <link rel="stylesheet" href="{{ $css.Permalink }}" />
 {{ end }}
-<link rel="stylesheet" href="{{ $css.Permalink }}" />
 <link rel="stylesheet" href="{{ "css/custom.css" | absURL }}">
 
 <!-- favicon -->
