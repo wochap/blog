@@ -10,9 +10,6 @@
   {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
 {{ end -}}
 
-<!-- Iosevka <https://typeof.net/Iosevka> -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Iosevka/6.0.0/iosevka/iosevka.min.css" integrity="sha512-3hU20586NsplKRzjf2jQN5vTRTI2EsXObrHDOBLGdkiRkneg699BlmBXWGHHFHADCF3TOk2BREsVy7qTkmvQqQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
 <!-- dimolto theme -->
 <link rel="stylesheet" href="{{ printf "css/chromas/%s.css" (.Site.Params.theme.palette | default "catppuccin-macchiato") | absURL }}">
 <link rel="stylesheet" href="{{ printf "css/palettes/%s.css" (.Site.Params.theme.palette | default "catppuccin-macchiato") | absURL }}">
