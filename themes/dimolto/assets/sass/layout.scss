@@ -46,11 +46,6 @@
   flex-shrink: 0;
 }
 
-.page__cmd {
-  color: var(--muted);
-  margin: 0 0 0 -1rem;
-}
-
 .page__nav {
   align-items: start;
   display: flex;
@@ -58,11 +53,19 @@
   flex-grow: 1;
 }
 
+.page__nav-container {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  gap: 0.5rem;
+}
+
 @media (min-width: 45rem) {
   .page__nav {
     justify-content: space-between;
     align-items: center;
     flex-direction: row;
+    gap: 0.5rem;
   }
 }
 

@@ -1,18 +1,38 @@
-<nav class="page__nav main-nav">
-  <ul>
+<nav class="page__nav ">
+  <div class="page__nav-container">
     <h1 class="page__logo">
       <a href="{{ .Site.BaseURL }}" class="page__logo-inner">{{ .Site.Title }}</a>
     </h1>
-    <span class="page__cmd">cd</span>
-    {{ $currentPage := . }}
-    {{ range .Site.Menus.main }}
-      <li class="main-nav__item">
-        <a class="nav-main-item{{ if or ($currentPage.IsMenuCurrent "main" .) ($currentPage.HasMenuCurrent "main" .) (eq ($currentPage.Permalink) (.URL | absLangURL)) }} active{{end}}" href="{{ .URL | absLangURL }}" title="{{ .Title }}">{{ .Name }}</a>
-      </li>
+    <ul class="main-nav decoration">
+      {{ $currentPage := . }}
+      {{ range .Site.Menus.main }}
+        <li class="main-nav__item">
+          <a class="nav-main-item{{ if or ($currentPage.IsMenuCurrent "main" .) ($currentPage.HasMenuCurrent "main" .) (eq ($currentPage.Permalink) (.URL | absLangURL)) }} active{{end}}" href="{{ .URL | absLangURL }}" title="{{ .Title }}">{{ .Name }}</a>
+        </li>
+      {{ end }}
+    </ul>
+  </div>
+
+  <ul class="main-nav">
+    {{ $siteLanguages := .Site.Languages }}
+    {{ $pageLang := .Page.Lang }}
+
+    {{ range .Page.AllTranslations }}
+      {{ $translation := .}}
+      {{ range $siteLanguages }}
+        {{ if eq $translation.Lang .Lang }}
+          {{ if eq $pageLang .Lang }}
+            <li class="main-nav__item">
+              <a class="nav-main-item active" href="{{ $translation.Permalink }}">{{ .LanguageName }}</a><br/>
+            </li>
+          {{ else }}
+            <li class="main-nav__item">
+              <a class="nav-main-item" href="{{ $translation.Permalink }}">{{ .LanguageName }}</a><br/>
+            </li>
+          {{ end }}
+        {{ end }}
+      {{ end }}
     {{ end }}
-  </ul>
-  <ul>
-    {{- partial "lang.html" . -}}
   </ul>
 </nav>
 

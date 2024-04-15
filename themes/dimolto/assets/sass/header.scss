@@ -1,5 +1,4 @@
-/* Main menu */
-.main-nav ul {
+.main-nav {
   display: flex;
   flex-flow: row wrap;
   align-items: center;
@@ -7,6 +6,11 @@
   margin: 0;
   padding: 0;
   gap: 0rem 1.5rem;
+
+  &.decoration::before {
+    content: "cd";
+    color: var(--muted);
+  }
 }
 
 .main-nav li {
