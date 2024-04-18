@@ -16,52 +16,7 @@
         <h3 class="post-item__title">
           <a href="{{ .Permalink }}">{{ .Title | markdownify }}</a>
         </h3>
-        <div class="post-item__meta">
-          <!-- date -->
-          <div>
-            {{- partial "svg-icons/calendar-day.html" (dict "size" "14") }} <time datetime="{{ .PublishDate }}">{{ .PublishDate | time.Format "Jan 2" }}</time>
-          </div>
-
-          <!-- reading time -->
-          {{ if gt .ReadingTime 1 }}
-            {{ .Scratch.Set "timeUnit" "mins" }}
-          {{ else }}
-            {{ .Scratch.Set "timeUnit" "min" }}
-          {{ end }}
-          {{ if .Site.Params.showReadingTime }}
-            <div>
-              {{- partial "svg-icons/clock.html" (dict "size" "14") }} <span> ~{{.ReadingTime}} {{ .Scratch.Get "timeUnit" }}</span>
-            </div>
-          {{ end }}
-
-          <!-- tags -->
-          {{ with .Params.tags }}
-            <div>
-              {{- partial "svg-icons/hash.html" (dict "size" "14") }}
-              <ul class="tags">
-              {{ range . }}
-                <li>
-                  <a href="{{ "tags/" | absURL }}{{ . | urlize }}">{{ . }}</a>
-                </li>
-              {{ end }}
-              </ul>
-            </div>
-          {{ end}}
-
-          <!-- series -->
-          {{ with .Params.series }}
-            <div>
-              {{- partial "svg-icons/tags.html" }}
-              <ul class="tags">
-              {{ range . }}
-                <li>
-                  <a href="{{ "series/" | absURL }}{{ . | urlize }}">{{ . }}</a>
-                </li>
-              {{ end }}
-              </ul>
-            </div>
-          {{ end}}
-        </div>
+        {{- partial "post-meta.html" . -}}
         <div class="post-item__summary">
           {{ .Summary }}
         </div>
