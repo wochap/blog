@@ -5,7 +5,16 @@
   <div class="content__body content">
     {{ .Content }}
   </div>
-  <footer class="content__footer"></footer>
+  <footer class="content__footer">
+    <nav class="paginator">
+      {{ if .NextInSection }}
+        <a class="paginator__btn" href="{{ .NextInSection.Permalink }}" title="{{ .NextInSection.Title }}">← {{ i18n "next_post" }}</a>
+      {{ end }}
+      {{ if .PrevInSection }}
+        <a class="paginator__btn next" href="{{ .PrevInSection.Permalink }}" title="{{ .PrevInSection.Title }}">{{ i18n "prev_post" }} →</a>
+      {{ end }}
+    </nav>
+  </footer>
 {{ end }}
 
 {{ define "aside" }}

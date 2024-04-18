@@ -1,8 +1,14 @@
 - id: prev_page
-  translation: 'Anterior pagina'
+  translation: 'Anterior Página'
 
 - id: next_page
-  translation: 'Siguiente pagina'
+  translation: 'Siguiente Página'
+
+- id: prev_post
+  translation: 'Anterior Post'
+
+- id: next_post
+  translation: 'Siguiente Post'
 
 - id: page_not_found
   translation: 'Pagina no encontrada'

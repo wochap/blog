@@ -4,6 +4,12 @@
 - id: next_page
   translation: 'Next Page'
 
+- id: prev_post
+  translation: 'Prev Post'
+
+- id: next_post
+  translation: 'Next Post'
+
 - id: page_not_found
   translation: 'Page not found'
 
