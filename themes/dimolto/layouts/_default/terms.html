@@ -1,14 +1,15 @@
 {{ define "main" }}
-  {{ $data := .Data }}
-
+  {{ $type := .Type }}
   <ul>
   {{ range $key, $value := .Data.Terms.ByCount }}
-    {{ if ($value.Name) }}
-      <li>
-        <a href="{{ "tags/" | relURL }}{{ $value.Name | urlize }}">
-          #{{ $value.Name }} <span>({{ $value.Count }})</span>
-        </a>
-      </li>
+    {{ $term := .Term }}
+    {{ $count := .Count }}
+    {{ with $.Site.GetPage (printf "/%s/%s" $type $term) }}
+    <li>
+      <a href="{{ .RelPermalink }}">
+        {{ $term }} <span>({{ $count }})</span>
+      </a>
+    </li>
     {{ end }}
   {{ end }}
   </ul>

@@ -1,17 +1,20 @@
 - id: prev_page
-  translation: 'Anterior Página'
+  translation: "Anterior Página"
 
 - id: next_page
-  translation: 'Siguiente Página'
+  translation: "Siguiente Página"
 
 - id: prev_post
-  translation: 'Anterior Post'
+  translation: "Anterior Post"
 
 - id: next_post
-  translation: 'Siguiente Post'
+  translation: "Siguiente Post"
 
 - id: page_not_found
-  translation: 'Pagina no encontrada'
+  translation: "Pagina no encontrada"
 
 - id: toc
-  translation: 'Tabla de contenidos'
+  translation: "Tabla de contenidos"
+
+- id: series_posts_title
+  translation: "Publicaciones en esta serie"

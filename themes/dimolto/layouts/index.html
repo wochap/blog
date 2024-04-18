@@ -37,11 +37,25 @@
           <!-- tags -->
           {{ with .Params.tags }}
             <div>
-              {{- partial "svg-icons/tag.html" (dict "size" "14") }}
+              {{- partial "svg-icons/hash.html" (dict "size" "14") }}
               <ul class="tags">
               {{ range . }}
                 <li>
-                  <a href="{{ "tags/" | absURL }}{{ . | urlize }}">#{{ . }}</a>
+                  <a href="{{ "tags/" | absURL }}{{ . | urlize }}">{{ . }}</a>
+                </li>
+              {{ end }}
+              </ul>
+            </div>
+          {{ end}}
+
+          <!-- series -->
+          {{ with .Params.series }}
+            <div>
+              {{- partial "svg-icons/tags.html" }}
+              <ul class="tags">
+              {{ range . }}
+                <li>
+                  <a href="{{ "series/" | absURL }}{{ . | urlize }}">{{ . }}</a>
                 </li>
               {{ end }}
               </ul>

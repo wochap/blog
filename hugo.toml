@@ -56,6 +56,10 @@ showReadingTime = true
     noClasses = false
     tabWidth = 2
 
+[taxonomies]
+  tag = "tags"
+  series = "series"
+
 [languages]
 
   [languages.en]
@@ -72,9 +76,15 @@ showReadingTime = true
     description = "I'm a self-taught software engineer 💻 on a mission to explore the world while crafting innovative solutions through code 🚀."
 
     [languages.en.menus]
+
     [[languages.en.menus.main]]
       name = 'Tags'
       pageRef = '/tags'
+      weight = 0
+
+    [[languages.es.menus.main]]
+      name = 'Series'
+      pageRef = '/series'
       weight = 0
 
   [languages.es]
@@ -91,9 +101,15 @@ showReadingTime = true
     description = "Soy un ingeniero de software autodidacta 💻 en una misión para explorar el mundo mientras creo soluciones innovadoras a través del código 🚀."
 
     [languages.es.menus]
+
     [[languages.es.menus.main]]
       name = 'Etiquetas'
       pageRef = '/tags'
+      weight = 0
+
+    [[languages.es.menus.main]]
+      name = 'Series'
+      pageRef = '/series'
       weight = 0
 
 [privacy]

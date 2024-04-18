@@ -4,6 +4,22 @@
   </header>
   <div class="content__body content">
     {{ .Content }}
+
+    {{ if .Params.series }}
+      {{ $postTitle := .Title }}
+      {{ $series := where .Site.RegularPages ".Params.series" "intersect" .Params.series }}
+      <hr>
+      <p>{{ i18n "series_posts_title" }}</p>
+      <ul>
+        {{ range $series }}
+          {{ if ne .Title $postTitle }}
+          <li><a href="{{ .Page.RelPermalink }}">{{ .Date | time.Format "January 2, 2006" }} - {{ title .Page.Title }}</a></li>
+          {{ else }}
+          <li>{{ .Date | time.Format "January 2, 2006" }} - {{ title .Page.Title }}</li>
+          {{ end }}
+        {{ end }}
+      </ul>
+    {{ end }}
   </div>
   <footer class="content__footer">
     <nav class="paginator">
@@ -41,14 +57,28 @@
 
   <!-- tags -->
   {{ with .Params.tags }}
-    {{- partial "svg-icons/tag.html" }}
-    <ul class="tags">
+    {{- partial "svg-icons/hash.html" }}
+    <ul class="tags inline">
     {{ range . }}
       <li>
-        <a href="{{ "tags/" | absURL }}{{ . | urlize }}">#{{ . }}</a>
+        <a href="{{ "tags/" | absURL }}{{ . | urlize }}">{{ . }}</a>
       </li>
     {{ end }}
     </ul>
+  {{ end}}
+
+  <!-- series -->
+  {{ with .Params.series }}
+    <div>
+      {{- partial "svg-icons/tags.html" }}
+      <ul class="tags">
+      {{ range . }}
+        <li>
+          <a href="{{ "series/" | absURL }}{{ . | urlize }}">{{ . }}</a>
+        </li>
+      {{ end }}
+      </ul>
+    </div>
   {{ end}}
 
   {{ if and (.Params.toc) (.TableOfContents) }}

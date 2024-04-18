@@ -3,6 +3,10 @@
   align-items: center;
   gap: 0.5rem;
   padding: 0;
+
+  &.inline {
+    margin-bottom: 0;
+  }
 }
 
 .tags li {
