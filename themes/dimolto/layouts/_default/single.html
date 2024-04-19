@@ -13,9 +13,9 @@
       <ul>
         {{ range $series }}
           {{ if ne .Title $postTitle }}
-          <li><a href="{{ .Page.RelPermalink }}">{{ .Date | time.Format "January 2, 2006" }} - {{ title .Page.Title }}</a></li>
+          <li><a href="{{ .Page.RelPermalink }}">{{ title .Page.Title }}</a></li>
           {{ else }}
-          <li>{{ .Date | time.Format "January 2, 2006" }} - {{ title .Page.Title }}</li>
+          <li>{{ title .Page.Title }} (You are here)</li>
           {{ end }}
         {{ end }}
       </ul>
@@ -58,19 +58,21 @@
   <!-- tags -->
   {{ $series := .Params.series }}
   {{ with .Params.tags }}
-    {{- partial "svg-icons/hash.html" }}
-    <ul class="tags{{ if $series }} inline{{ end }}">
-      {{ range . }}
-        <li>
-          <a href="{{ "tags/" | absURL }}{{ . | urlize }}">{{ . }}</a>
-        </li>
-      {{ end }}
-    </ul>
+    <div class="tags-container">
+      {{- partial "svg-icons/hash.html" }}
+      <ul class="tags{{ if $series }} inline{{ end }}">
+        {{ range . }}
+          <li>
+            <a href="{{ "tags/" | absURL }}{{ . | urlize }}">{{ . }}</a>
+          </li>
+        {{ end }}
+      </ul>
+    </div>
   {{ end}}
 
   <!-- series -->
   {{ with .Params.series }}
-    <div>
+    <div class="tags-container">
       {{- partial "svg-icons/tags.html" }}
       <ul class="tags">
         {{ range . }}

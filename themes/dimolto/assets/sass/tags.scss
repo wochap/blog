@@ -1,3 +1,19 @@
+.tags-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: flex-start;
+
+  .svg-icon {
+    padding-top: 0.25em;
+  }
+
+  .tags {
+    flex: 1;
+  }
+}
+
 .tags {
   display: inline-flex;
   align-items: center;
@@ -13,8 +29,4 @@
   &::marker {
     content: "";
   }
-}
-
-.svg-icon + .tags {
-  margin-left: 0.5em;
 }
