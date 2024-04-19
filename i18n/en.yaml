@@ -18,3 +18,6 @@
 
 - id: series_posts_title
   translation: "Posts in this series"
+
+- id: series_here
+  translation: "You are here"

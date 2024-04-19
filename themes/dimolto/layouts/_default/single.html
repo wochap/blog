@@ -15,7 +15,7 @@
           {{ if ne .Title $postTitle }}
           <li><a href="{{ .Page.RelPermalink }}">{{ title .Page.Title }}</a></li>
           {{ else }}
-          <li>{{ title .Page.Title }} (You are here)</li>
+          <li>{{ title .Page.Title }} ({{ i18n "series_here" }})</li>
           {{ end }}
         {{ end }}
       </ul>
