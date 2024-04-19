@@ -56,14 +56,15 @@
   {{ end }}
 
   <!-- tags -->
+  {{ $series := .Params.series }}
   {{ with .Params.tags }}
     {{- partial "svg-icons/hash.html" }}
-    <ul class="tags inline">
-    {{ range . }}
-      <li>
-        <a href="{{ "tags/" | absURL }}{{ . | urlize }}">{{ . }}</a>
-      </li>
-    {{ end }}
+    <ul class="tags{{ if $series }} inline{{ end }}">
+      {{ range . }}
+        <li>
+          <a href="{{ "tags/" | absURL }}{{ . | urlize }}">{{ . }}</a>
+        </li>
+      {{ end }}
     </ul>
   {{ end}}
 
@@ -72,11 +73,11 @@
     <div>
       {{- partial "svg-icons/tags.html" }}
       <ul class="tags">
-      {{ range . }}
-        <li>
-          <a href="{{ "series/" | absURL }}{{ . | urlize }}">{{ . }}</a>
-        </li>
-      {{ end }}
+        {{ range . }}
+          <li>
+            <a href="{{ "series/" | absURL }}{{ . | urlize }}">{{ . }}</a>
+          </li>
+        {{ end }}
       </ul>
     </div>
   {{ end}}
