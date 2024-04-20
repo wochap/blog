@@ -9,7 +9,7 @@
       {{ $postTitle := .Title }}
       {{ $series := where .Site.RegularPages ".Params.series" "intersect" .Params.series }}
       <hr>
-      <p>{{ i18n "series_posts_title" }}</p>
+      <p><strong>{{ i18n "series_posts_title" }}</strong></p>
       <ul>
         {{ range $series }}
           {{ if ne .Title $postTitle }}
