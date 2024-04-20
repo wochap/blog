@@ -82,7 +82,7 @@ showReadingTime = true
       pageRef = '/tags'
       weight = 0
 
-    [[languages.es.menus.main]]
+    [[languages.en.menus.main]]
       name = 'Series'
       pageRef = '/series'
       weight = 0
