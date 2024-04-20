@@ -19,33 +19,6 @@ h6 {
   font-size: 1rem;
   margin: 0 0 1rem 0;
   font-weight: 600;
-
-  a {
-    opacity: 0;
-  }
-
-  &:hover a {
-    opacity: 1;
-  }
-}
-
-h1 {
-  color: var(--base08);
-}
-h2 {
-  color: var(--base09);
-}
-h3 {
-  color: var(--base0A);
-}
-h4 {
-  color: var(--base0B);
-}
-h5 {
-  color: var(--base0C);
-}
-h6 {
-  color: var(--base07);
 }
 
 h1:before {

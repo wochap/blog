@@ -1,0 +1,36 @@
+.content__header,
+.content__body {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    a {
+      opacity: 0;
+    }
+
+    &:hover a {
+      opacity: 1;
+    }
+  }
+
+  h1 {
+    color: var(--base08);
+  }
+  h2 {
+    color: var(--base09);
+  }
+  h3 {
+    color: var(--base0A);
+  }
+  h4 {
+    color: var(--base0B);
+  }
+  h5 {
+    color: var(--base0C);
+  }
+  h6 {
+    color: var(--base07);
+  }
+}
