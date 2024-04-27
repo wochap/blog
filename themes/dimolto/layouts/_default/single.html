@@ -7,9 +7,13 @@
 
     {{ if .Params.series }}
       {{ $postTitle := .Title }}
-      {{ $series := where .Site.RegularPages ".Params.series" "intersect" .Params.series }}
+      {{ $series := sort (where .Site.RegularPages ".Params.series" "intersect" .Params.series) ".PublishDate" "asc" }}
+      {{ $serie := index (.Params.series) 0 }}
       <hr>
-      <p><strong>{{ i18n "series_posts_title" }}</strong></p>
+      <p>
+        <strong>{{ i18n "series_posts_title" }}</strong>
+        <a href="{{ "series/" | absURL }}{{ $serie | urlize }}">{{ $serie }}</a>
+      </p>
       <ul>
         {{ range $series }}
           {{ if ne .Title $postTitle }}
