@@ -26,6 +26,18 @@ title = "dimolto"
 description = "A [hugo](https://gohugo.io) theme inspired by [risotto](https://github.com/joeroe/risotto)."
 logo = "images/rice.svg"
 
+# [params.giscus]
+# repo = ""
+# repoId = ""
+# category = "Announcements"
+# categoryId = ""
+# mapping = "pathname"
+# strict = "0"
+# reactionsEnabled = "0"
+# emitMetadata = "0"
+# inputPosition = "top"
+# theme = ""
+
 # Sidebar: social links
 # Available icon sets:
 # * FontAwesome 6 <https://fontawesome.com/> ('fa-brands', 'fa-normal', or 'fa-solid' for brands)

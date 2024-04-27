@@ -39,6 +39,19 @@ showReadingTime = true
   title = "Email"
   url = "mailto:gean.marroquin@gmail.com"
 
+  # Comments
+  [params.giscus]
+  repo = "wochap/blog"
+  repoId = "R_kgDOLuI14Q"
+  category = "Announcements"
+  categoryId = "DIC_kwDOLuI14c4Ce_IN"
+  mapping = "pathname"
+  strict = "0"
+  reactionsEnabled = "0"
+  emitMetadata = "0"
+  inputPosition = "top"
+  theme = "https://giscus.catppuccin.com/themes/macchiato.css"
+
 [markup]
 
   # For hugo >= 0.60.0, enable inline HTML

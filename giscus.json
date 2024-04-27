@@ -1,0 +1,4 @@
+{
+  "originsRegexp": ["https://(es.)?geanmar.com", "http://localhost:[0-9]+"],
+  "defaultCommentOrder": "newest"
+}

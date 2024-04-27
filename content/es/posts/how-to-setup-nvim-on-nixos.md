@@ -8,7 +8,8 @@ tags = [
   "nvim",
   "nixos",
 ]
-toc = true
+showToc = true
+showComments = true
 +++
 
 En esta guía te mostraré cómo hacer que [mason.nvim](https://github.com/williamboman/mason.nvim) y [lazy.nvim](https://github.com/folke/lazy.nvim) funcionen en NixOS. Sin embargo, si planeas hacer que tu configuración de nvim sea reproducible dentro de tu configuración de Nix, te sugiero que consultes lo siguiente: [nixvim](https://github.com/nix-community/nixvim).

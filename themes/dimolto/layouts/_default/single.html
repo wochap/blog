@@ -34,6 +34,10 @@
         <a class="paginator__btn next" href="{{ .PrevInSection.Permalink }}" title="{{ .PrevInSection.Title }}">{{ i18n "prev_post" }} →</a>
       {{ end }}
     </nav>
+    {{ if .Params.showComments }}
+      <hr>
+      {{- partial "comments.html" . -}}
+    {{ end }}
   </footer>
 {{ end }}
 
@@ -88,7 +92,7 @@
     </div>
   {{ end}}
 
-  {{ if and (.Params.toc) (.TableOfContents) }}
+  {{ if and (.Params.showToc) (.TableOfContents) }}
     <hr>
     <details class="toc-mobile">
       <summary>
