@@ -93,6 +93,24 @@ Dado que paso la mayor parte de mi tiempo trabajando con React y Vue, aquí tien
 }
 ```
 
+Algunos LSPs pueden devolver una gran cantidad de sugerencias, como es el caso de [vtsls](https://github.com/yioneko/vtsls). Esto puede hacer que tu plugin de autocompletado (por ejemplo, [blink.cmp](https://github.com/Saghen/blink.cmp), [nvim-cmp](https://github.com/hrsh7th/nvim-cmp)) se ralentice. Para evitarlo, es recomendable limitar la cantidad de sugerencias que devuelve el LSP. Por ejemplo, para reducir las sugerencias de `vtsls`, puedes ajustar su configuración de la siguiente manera:
+
+```lua
+-- vtsls LSP config
+{
+  settings = {
+    vtsls = {
+      experimental = {
+        completion = {
+          enableServerSideFuzzyMatch = true,
+          entriesLimit = 20,
+        },
+      },
+    },
+  },
+}
+```
+
 ## Ajustando Plugins
 
 ### nvim-treesitter

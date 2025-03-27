@@ -93,6 +93,24 @@ Since I spend most of my time juggling React and Vue, here’s a quick tip: if y
 }
 ```
 
+Some LSPs can return a large number of completions, such as [vtsls](https://github.com/yioneko/vtsls). This may cause your completion plugin (e.g., [blink.cmp](https://github.com/Saghen/blink.cmp), [nvim-cmp](https://github.com/hrsh7th/nvim-cmp)) to lag. To prevent this, you should limit the number of completions returned by the LSP. For example, to restrict the number of completions provided by `vtsls`, you can modify its configuration as follows:
+
+```lua
+-- vtsls LSP config
+{
+  settings = {
+    vtsls = {
+      experimental = {
+        completion = {
+          enableServerSideFuzzyMatch = true,
+          entriesLimit = 20,
+        },
+      },
+    },
+  },
+}
+```
+
 ## Tweaking Plugins
 
 ### nvim-treesitter
