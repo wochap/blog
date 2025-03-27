@@ -20,6 +20,9 @@ A continuación, pasa el `profile.json` generado a una interfaz gráfica como [P
 
 ![Perfetto UI](https://res.cloudinary.com/wochap/image/upload/v1742770964/wochap/assets/2025-03-23-17-56-12.webp)
 
+> **EDIT (Marzo 27, 2025):** [snacks.nvim](https://github.com/folke/snacks.nvim) incluye un [profiler tool](https://github.com/folke/snacks.nvim/blob/main/docs/profiler.md), el cual prefiero sobre [profile.nvim](https://github.com/stevearc/profile.nvim).
+> ![snacks profiler](https://res.cloudinary.com/wochap/image/upload/v1743109719/wochap/assets/Screenshot_2025-03-27_04-07-30.webp)
+
 ## Ajustando opciones
 
 ### Deshabilitar "built-in syntax highlighting"
