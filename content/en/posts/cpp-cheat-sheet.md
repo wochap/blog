@@ -46,17 +46,28 @@ Do not include features introduced after C++23.
 ### 1. Variables and Basic Data Types
 
 ```cpp
+// #include is not the same as import in other languages.
+// #include essentially copies and pastes the code from the included file.
+// <> looks for files in the compiler's system directories.
+// "" looks for files within your project.
 #include <iostream>
 #include <string>
+// #include "Something.h"
 
 // Minimum C++ standard: C++98
 int main() {
     // Basic variable declaration and initialization
-    int number = 42;                // Integer
-    double pi = 3.14159;            // Floating point
+    int number = 42;                // Integer, 32 bit
+    double pi = 3.141592653589793;  // Floating point, 64 bit
     bool isValid = true;            // Boolean
-    char letter = 'A';              // Character
+    char letter = 'A';              // Character, 8 bit
     std::string text = "Hello";     // String (from standard library)
+
+    // 'unsigned' means a variable can only store non-negative values
+    // "'" is a digit separator (C++14)
+    unsigned float number2 = 3.14159f; // 32 bit, the 'f' is necessary to specify a float literal
+    short number2(static_cast<short>(32'767)); // 16 bit, direct initialization, slightly more efficient
+    long number3{9'223'372'036'854'775'807}; // 32/64 bit, list initialization, prevents narrowing (C++11),
 
     // C++ is statically typed, unlike Python/JavaScript which are dynamically typed
     // Type must be declared and cannot change during runtime
@@ -235,6 +246,13 @@ public:   // These members are accessible from outside the class
     Person(const std::string& name, int age) {
         this->name = name;  // 'this' pointer refers to the current instance
         this->age = age;
+    }
+    // Constructor using member initializer list
+    // Person(const std::string& name, int age) : name(name), age(age) {}
+
+    // Destructor - called when the object goes out of scope
+    ~Person() {
+        std::cout << name << " is being destroyed." << std::endl;
     }
 
     // Member functions (methods)
